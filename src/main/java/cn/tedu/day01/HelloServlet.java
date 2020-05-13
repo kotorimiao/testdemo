@@ -1,37 +1,32 @@
 package cn.tedu.day01;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-
-import javax.servlet.Servlet;
-import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
-public class HelloServlet implements Servlet{
+/**
+ *
+ */
+public class HelloServlet extends HttpServlet {
 
-	public void destroy() {
-		
-	}
 
-	public ServletConfig getServletConfig() {
-		return null;
-	}
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        super.doPost(req,resp);
+    }
 
-	public String getServletInfo() {
-		return null;
-	}
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        //模拟代码错误
+        int i = 100/0;
 
-	public void init(ServletConfig config) throws ServletException {
-		
-	}
+        //模拟冗余代码
+        int a = 100;
+        a = 200;
 
-	public void service(ServletRequest req, ServletResponse res) 
-			throws ServletException, IOException {
-		res.setContentType("text/html");
-		PrintWriter out = res.getWriter();
-		out.println("<html><body><h1>Hello World</h1></body></html>");
-	}
 
+        resp.getWriter().write("hello Servlet!");
+    }
 }
